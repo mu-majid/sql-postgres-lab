@@ -41,7 +41,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 ### SQL joins
 
   * Produces values by merging together rows from different related tables.
-  * use a join most times that we are asked to find data that involves multiple resources. 
+  * use a join most times that we are asked to find data that involves multiple resources.
 
   **Different types of joins**
 
@@ -77,3 +77,11 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   * Look at many rows and calculate a single value.
   * Words like `most` `average` are a sign that we need to use an aggregation.
+
+### Notes:
+  * When using UNION, the result of the two queries to be unioned, should have the same columns in their results
+  * Using UNION ALL allow duplicates between the queries being unioned. 
+  * INTERSECT finds the rows common in the results of two queries and removes duplicates
+  * INTERSECT ALL finds the rows common in the results of two queries.
+  * EXCEPT finds the rows that are present in the first query bot *not* second query (removes duplicates)
+  * EXCEPT ALL finds rows that are present in the first query but *not* second query.
