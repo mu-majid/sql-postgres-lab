@@ -47,19 +47,28 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ![joins](./pics/venn-sql-joins.jpg)
 
-  - Full Join Type:
+  - **Full Join Type:**
+
+    - Merge tables together, and keep any rows that does not match both tables
 
   ![full-join](./pics/full-join.png)
 
-  - Inner Join Type:
+  - **Inner Join Type**:
 
   ![inner](./pics/inner.png)
 
-  - Left Outer Join Type:
+    - merge tables together and drop any records tha don't match in both tables.
+    - Like an intersection with sets.
+
+  - **Left Outer Join Type:**
+
+    - Merge tables together, and keep any rows that does not match only in the **source** table.
 
   ![left-outer](./pics/left-outer.png)
 
-  - Right Outer Join Type:
+  - **Right Outer Join Type:**
+    
+    - Merge tables together, and keep any rows that does not match only in the **join** table.
 
   ![right-outer](./pics/right-outer.png)
 
