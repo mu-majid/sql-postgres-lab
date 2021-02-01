@@ -22,3 +22,18 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   - **ORDER BY**: It makes total sense to postpone the decision of ordering a result until the end, because all other operations might use hashmaps, internally, so any intermediate order might be lost again. So we can now order the result. Normally, you can access a lot of rows from the ORDER BY clause, including rows (or expressions) that you did not SELECT. But when you specified DISTINCT, before, you can no longer order by rows / expressions that were not selected. Why? Because the ordering would be quite undefined.
   - **OFFSET**: [Don’t use offset](https://blog.jooq.org/2014/08/06/join-the-no-offset-movement/)
   - **LIMIT, FETCH, TOP**: Now, sane databases put the LIMIT (MySQL, PostgreSQL) or FETCH (DB2, Oracle 12c, SQL Server 2012) clause at the very end, syntactically. In the old days, Sybase and SQL Server thought it would be a good idea to have TOP as a keyword in SELECT. As if the correct ordering of SELECT DISTINCT wasn’t already confusing enough.
+
+### SQL relation types: 
+
+  - One-to-many (has many) relationship.
+  - Many-to-One relationship.
+  - One-to-One relationship.
+  - Many-to-Many relationship.
+
+  **Foreign key** deletion constraint:
+
+    * ON DELETE RESTRICT: throw error
+    * ON DELETE NO ACTION: throw error
+    * ON DELETE CASCADE: delete referenced records as well after deleting the primary record
+    * ON DELETE SET NULL: set fk column value to NULL
+    * ON DELETE SET DEFAULT: set the fk column to default value if one is provided when creating table
