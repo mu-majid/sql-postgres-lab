@@ -37,3 +37,34 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
     * ON DELETE CASCADE: delete referenced records as well after deleting the primary record
     * ON DELETE SET NULL: set fk column value to NULL
     * ON DELETE SET DEFAULT: set the fk column to default value if one is provided when creating table
+
+### SQL joins
+
+  * Produces values by merging together rows from different related tables.
+  * use a join most times that we are asked to find data that involves multiple resources. 
+
+  **Different types of joins**
+
+  ![joins](./pics/venn-sql-joins.jpg)
+
+  - Full Join Type:
+
+  ![full-join](./pics/full-join.png)
+
+  - Inner Join Type:
+
+  ![inner](./pics/inner.png)
+
+  - Left Outer Join Type:
+
+  ![left-outer](./pics/left-outer.png)
+
+  - Right Outer Join Type:
+
+  ![right-outer](./pics/right-outer.png)
+
+
+### SQL Aggregations
+
+  * Look at many rows and calculate a single value.
+  * Words like `most` `average` are a sign that we need to use an aggregation.
