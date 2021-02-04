@@ -78,7 +78,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Look at many rows and calculate a single value.
   * Words like `most` `average` are a sign that we need to use an aggregation.
 
-### Notes:
+### Notes On sets and sql:
   * When using UNION, the result of the two queries to be unioned, should have the same columns in their results
   * Using UNION ALL allow duplicates between the queries being unioned. 
   * INTERSECT finds the rows common in the results of two queries and removes duplicates
