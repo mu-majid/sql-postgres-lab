@@ -93,3 +93,4 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * when a sub-query is used in FROM or JOIN clause, it should be always renamed.
   * Validity of sub-queries in WHERE clause depends on the operator and sub-query result structure.
   * A correlated sub-query, is a query that references a value/variable from outer query.
+  
