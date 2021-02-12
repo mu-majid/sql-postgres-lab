@@ -86,6 +86,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * EXCEPT finds the rows that are present in the first query bot *not* second query (removes duplicates)
   * EXCEPT ALL finds rows that are present in the first query but *not* second query.
 
+
 ### Sub-queries Notes:
 
   * A sub query could be written in a SELECT, FROM, JOIN, or WHERE clause. This depends on the structure the sub-query returns
