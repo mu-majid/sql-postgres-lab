@@ -1,5 +1,6 @@
 ## Overview
 
+  * CMU database course by andy pavlo is a good resource for how the DB engine works internally.
   * This repository is meant to hold notes, code, and diagrams that are implemented/written during studying a course covering postgresSQL.
 
 ### Database Design process
