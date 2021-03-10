@@ -156,4 +156,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 ### Validation on the Database side:
 
   * We add some constraints on each column of our tables (if necessary).
-  * One example is `NOT NULL` constraint, that does not allow null value in a specific column
+  * One example is `NOT NULL` constraint, that does not allow null value in a specific column.
+  * Some other constraint is the DEFAULT constraint.
+  * UNIQUE constraint makes sure that a value being inserted is unique across the entire column (there is also multi column uniqueness constraint).
+  * a CHECK constraints are made to check if a value is less/greater/equal ...  than a value (we can compare a value to be inserted with a value in another column). 
