@@ -96,3 +96,20 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Validity of sub-queries in WHERE clause depends on the operator and sub-query result structure.
   * A correlated sub-query, is a query that references a value/variable from outer query.
   
+
+### Postgres Data types:
+
+  * These are the main Categories and each category has sub-types:
+
+    - Numbers
+    - Currency
+    - Binary
+    - Date/Time
+    - Character
+    - JSON
+    - Geometric
+    - Range
+    - Arrays
+    - Boolean
+    - XML
+    - UUID
