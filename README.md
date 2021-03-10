@@ -128,3 +128,27 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   **Characters**:
   ![chars](./pics/chars.png)
+
+  - There is no difference in terms of performance between these types
+  - `char` will truncate string or pad a small string with spaces to be of the exact length specified.
+
+
+  **Boolean**:
+  ![bool](./pics/bool.png)
+
+  - Postgres added the `yes` `y` `1` ... as backward compatible solution for older databases
+
+  **Date and Time**:
+
+  - DATE is used to save just the day, month, and year.
+  - for TIME, there are two types:
+
+    1. TIME WITHOUT TIME ZONE
+    2. TIME WITH TIME ZONE (saved with the UTC offset)
+
+  **INTERVAL**:
+
+  - usually not used as a column type
+  - used when we want to do numeric operations on days, hours, and seconds. So we can subtract or add an INTERVAL to a DATE/TIME type, for example:
+
+    `SELECT('NOV-26-1980 1:23 AM EST'::TIMESTAMP WITH TIME ZONE) - ('1 D'::INTERVAL);`
