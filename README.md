@@ -152,3 +152,8 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   - used when we want to do numeric operations on days, hours, and seconds. So we can subtract or add an INTERVAL to a DATE/TIME type, for example:
 
     `SELECT('NOV-26-1980 1:23 AM EST'::TIMESTAMP WITH TIME ZONE) - ('1 D'::INTERVAL);`
+
+### Validation on the Database side:
+
+  * We add some constraints on each column of our tables (if necessary).
+  * One example is `NOT NULL` constraint, that does not allow null value in a specific column
