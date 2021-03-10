@@ -160,3 +160,6 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Some other constraint is the DEFAULT constraint.
   * UNIQUE constraint makes sure that a value being inserted is unique across the entire column (there is also multi column uniqueness constraint).
   * a CHECK constraints are made to check if a value is less/greater/equal ...  than a value (we can compare a value to be inserted with a value in another column). 
+
+  **Where to validate**?
+  ![validation](./pics/validation.png)
