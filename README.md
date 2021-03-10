@@ -116,3 +116,15 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   **Numbers**:
   ![numbers](./pics/numbers.png)
+
+  - for `id` we usually use `serial`.
+  - for numbers without decimal point we use `integer`
+  - for numbers with high accuracy (like bank accounts and gold grams) we use `numeric`
+  - for decimal point number that decimal does not make such a big difference we use `double precision` 
+  
+
+  - For floating point math calculations we use `float`, `real`, or `double precision`. These values have inaccuracies in their results but they have better performance when compared to the accurate ones (numeric, decimal)
+
+
+  **Characters**:
+  ![chars](./pics/chars.png)
