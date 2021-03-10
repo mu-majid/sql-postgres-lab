@@ -113,3 +113,6 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
     - Boolean
     - XML
     - UUID
+
+  **Numbers**:
+  ![numbers](./pics/numbers.png)
