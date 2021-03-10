@@ -162,4 +162,6 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * a CHECK constraints are made to check if a value is less/greater/equal ...  than a value (we can compare a value to be inserted with a value in another column). 
 
   **Where to validate**?
+
+  - Most of validation rules are best put on the server, and only the critical ones are on the database side
   ![validation](./pics/validation.png)
