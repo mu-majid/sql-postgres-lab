@@ -188,3 +188,19 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   - we can rename the table to `reactions` instead, and add a column called `type` which is an ENUM that hold the type of the reaction.
 
   ![reactions](./pics/reactions.png)
+
+  #### To Allow liking multiple resources
+
+  - First solution is the `polymorphic association`. Of course not using FK constraint is a huge disadvantage. 
+
+  ![poly](./pics/poly.png)
+
+  - Another approach is to have a column (as FK) for each resource to be liked. The issue here is that `likes` table might get too long if we have many resources to like in our system
+
+  ![sol1](./pics/sol1.png)
+
+  - The last and simplest solution is to create a table for each resources to be liked, of course a downside is we could end up with many tables.
+  - an advantage of this approach is we can have different validation rules per resource.
+
+  ![sol2](./pics/sol2.png)
+
