@@ -204,3 +204,8 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ![sol2](./pics/sol2.png)
 
+### Building A Mention System:
+
+  * Here we have two kinds of mentions, a mention in post caption, and photo mention AKA tagging.
+  * For post location part, we chose to add lat and lng attributes on the posts table, but we could also create a separate table ( this is closely related on how we are going to use location data, as we might run a query in the future to list all posts in a location.)
+
