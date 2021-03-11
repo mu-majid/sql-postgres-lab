@@ -182,3 +182,9 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   2. the downside of this approach is that we only can have a single type of reaction, So we can't have a system like facebook.
   3. Also creating a likes table as mentioned we cannot like a comment for instance.
   
+
+  #### To Allow different reactions:
+
+  - we can rename the table to `reactions` instead, and add a column called `type` which is an ENUM that hold the type of the reaction.
+
+  ![reactions](./pics/reactions.png)
