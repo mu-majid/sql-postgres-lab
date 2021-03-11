@@ -171,3 +171,14 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   **The Wrong Way**:
 
   1. Adding a `likes` column on the resource to be liked (like posts, comments, ...), it has many disadvantages, like we can't know who liked the resource.
+
+  **The right Way**:
+
+  1. design a table called `like` and that holds `user_id` and `post_id` references, also to ensure that a user can only like a post one time, we can apply a UNIQUE constraint on both (user_id, post_id)
+
+  ![like](./pics/like.png)
+  ![like-cap](./pics/like-cap.png)
+
+  2. the downside of this approach is that we only can have a single type of reaction, So we can't have a system like facebook.
+  3. Also creating a likes table as mentioned we cannot like a comment for instance.
+  
