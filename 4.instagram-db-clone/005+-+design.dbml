@@ -22,7 +22,14 @@ Table comments {
   post_id INTEGER [ref: > posts.id]
 }
 
-
+Table likes {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  contents VARCHAR(240)
+  user_id INTEGER [ref: > users.id]
+  comment_id INTEGER [ref: > comment.id]
+  post_id INTEGER [ref: > posts.id]
+}
 
 
 
