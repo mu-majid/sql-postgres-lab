@@ -165,3 +165,9 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   - Most of validation rules are best put on the server, and only the critical ones are on the database side
   ![validation](./pics/validation.png)
+
+### Building A Like System:
+
+  **The Wrong Way**:
+
+  1. Adding a `likes` column on the resource to be liked (like posts, comments, ...), it has many disadvantages, like we can't know who liked the resource.
