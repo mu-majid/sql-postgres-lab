@@ -231,3 +231,11 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * We might allow reacting to photo_tags and not caption_tags, that case shows we might need to separate the two types of tags into two separate tables.
 
   ![question](./pics/question.png)
+
+### Building A Hashtag System:
+
+  * As we done previously, we might create a table for each resource that could have a hashtag, for example we could create a table called post_hashtag (id, hashtag_name, post_id), and another one for user's bio, and another one for comments.
+
+  * But we have to think it through, do we really need all these tables, Well, this depends only what will support in our app, like in instagram, we could use hashtags inside posts, comments and bio, but we could only search for hashtags used in posts.
+
+  * So we might only need to save hashtags that are related to posts. So we might not need to model all other resources that use a hashtag.
