@@ -35,5 +35,23 @@ Table likes {
 }
 
 
+Table caption_tags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
 
+  user_id INTEGER [ref: > users.id]
+  post_id INTEGER [ref: > posts.id]
+}
+
+Table photo_tags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+
+  user_id INTEGER [ref: > users.id]
+  post_id INTEGER [ref: > posts.id]
+
+  x INTEGER
+  y INTEGER
+}
 

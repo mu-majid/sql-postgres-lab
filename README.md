@@ -227,3 +227,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   ![tag2](./pics/tag2.png)
 
   * Choosing a solution really depends on some questions like the two mentioned in the below diagram, we have to  consider performance, how frequent we query our resources, data access patterns, and whether a functionality might change in the future and how will it be changed.
+
+  * We might allow reacting to photo_tags and not caption_tags, that case shows we might need to separate the two types of tags into two separate tables.
+
+  ![question](./pics/question.png)
