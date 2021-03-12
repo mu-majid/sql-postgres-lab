@@ -209,3 +209,8 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Here we have two kinds of mentions, a mention in post caption, and photo mention AKA tagging.
   * For post location part, we chose to add lat and lng attributes on the posts table, but we could also create a separate table ( this is closely related on how we are going to use location data, as we might run a query in the future to list all posts in a location.)
 
+  * Some considerations when building a tagging system is:
+  1. We need to save the location of the tag , if it is related to a photo, like saving an (x, y) distances measured in pixels (this of course assumes all photos are of the same size and shape)
+  2. For text mentions, Do we need to list posts a user was mentioned in?
+  3. Show list of the most mentioned users?
+  4. Notify the users when they're mentioned?
