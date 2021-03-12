@@ -55,3 +55,14 @@ Table photo_tags {
   y INTEGER
 }
 
+Table hashtags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  title VARCHAR(20)
+}
+
+Table hashtags_posts {
+  id SERIAL [pk, increment]
+  post_id INTEGER [ref: > posts.id]
+  hashtag_id INTEGER [ref: > hashtags.id]
+}
