@@ -214,3 +214,16 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   2. For text mentions, Do we need to list posts a user was mentioned in?
   3. Show list of the most mentioned users?
   4. Notify the users when they're mentioned?
+
+  **Solutions And Designs On DB level:**
+
+  * Generally, there are two solutions for the tagging system, shown in the below 2 diagrams.
+  * Solution 1 :
+
+  ![tag1](./pics/tag1.png)
+
+  * Solution 2 :
+  
+  ![tag2](./pics/tag2.png)
+
+  * Choosing a solution really depends on some questions like the two mentioned in the below diagram, we have to  consider performance, how frequent we query our resources, data access patterns, and whether a functionality might change in the future and how will it be changed.
