@@ -239,3 +239,13 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * But we have to think it through, do we really need all these tables, Well, this depends only what will support in our app, like in instagram, we could use hashtags inside posts, comments and bio, but we could only search for hashtags used in posts.
 
   * So we might only need to save hashtags that are related to posts. So we might not need to model all other resources that use a hashtag.
+
+  * One solution to build a posts_hashtags relation is to use a table like the one shown in the below diagram.
+
+  ![sol-bad-perf](./pics/sol-bad-perf.png)
+
+  * But for performance concerns, it is not wise to store many repetitive strings, and a better solution is to have some kind of a table that serves as a set of hashtags inside our application. Like shown below.
+
+  ![better-sol](./pics/better-sol.png)
+
+
