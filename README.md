@@ -251,7 +251,6 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 ### Designing Follower System:
 
   * We will implement a pretty simple follower system, a leader is the person being followed, and a follower is the person clicking the follow button.
-
   * a simple design might look like this:
 
   ![follow1](./pics/follow1.png)
