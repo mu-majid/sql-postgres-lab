@@ -14,7 +14,6 @@ JOIN posts as p
 WHERE u.id = 200;
 
 ----------
-
 -- show usernames and number of likes each user created
 SELECT username, COUNT(*)
 FROM users
