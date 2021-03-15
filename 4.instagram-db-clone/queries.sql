@@ -5,7 +5,6 @@ ORDER BY id DESC
 LIMIT 3;
 
 ----------
-
 -- Posts created by a particular user
 SELECT p.caption, u.username
 FROM users AS u
