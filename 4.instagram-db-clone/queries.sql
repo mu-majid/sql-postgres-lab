@@ -1,3 +1,4 @@
+-----------
 -- listing the most recent 3 users in our DB
 SELECT *
 FROM users
