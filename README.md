@@ -287,3 +287,10 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   5. When we want to find a particular record, we use the index and it tells us exactly where to find that record, and by loading only onr page in memory and going directly to an exact index we find our record.
 
+  **Downsides Of Indexes**:
+
+  * Each Index consumes a storage on the hard disk, so creating a lot of indexes for a large database, we could end up paying extra money if we're using a hosted DB solution.
+
+  * Slows insert/update/delete operations, because indexes needs to be updated.
+    (Updating might change the Tuple boundaries in the page, causing an update for the its and other items offset in the page which reflects to an update in the index DS)
+  * An index might be not used at the end by the BD engine.
