@@ -272,3 +272,18 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ![block1](./pics/block1.png)
 
+### Indexes:
+
+  * If we're trying to find a user with a certain username, without indexes, we would end up loading all users from heap file into memory, and then scanning them one by one, which is a big performance hit (not always a poor performance).
+
+  * An index is a way not to load all heap file pages into memory. An index is a data structure that tell us where a particular row/record  is stored in a heap file (on which block/page).
+
+  **How Index Works?**
+
+  1. Specify the column we ant to make fast lookups on it.
+  2. DB engine extracts only the property we created the index on along with in which block and at what index it existed.
+  3. Sort these extracted data in a meaningful way (by value for number, alphabetically for strings ...)
+  4. Organize these sorted data into a B-Tree data structure (B+)
+
+  5. When we want to find a particular record, we use the index and it tells us exactly where to find that record, and by loading only onr page in memory and going directly to an exact index we find our record.
+
