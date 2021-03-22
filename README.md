@@ -260,3 +260,15 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Postgres stores data on a folder in our hard drive. Each database is stored in a folder.
   * If we open a folder that corresponds to a database, we'll find a list of files, each file represent an object inside our database.
   * Objects may be tables, indexes, primary keys, ...
+
+  **Definitions**
+
+  * Heap / Heap File: File that contains all the data (rows) of our table.
+  * Tuple / Item    : Individual row from the table.
+  * Block / Page    : The heap file is divided into many different 'blocks' or 'pages'. Each page/block stores some number of rows. 
+
+  * A page or a block has a fixed size of 8 KB (in case of postgres).
+  * Illustration of a block:
+
+  ![block1](./pics/block1.png)
+
