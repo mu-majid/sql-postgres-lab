@@ -255,4 +255,8 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ![follow1](./pics/follow1.png)
 
+### Performance and Internals of Postgres:
 
+  * Postgres stores data on a folder in our hard drive. Each database is stored in a folder.
+  * If we open a folder that corresponds to a database, we'll find a list of files, each file represent an object inside our database.
+  * Objects may be tables, indexes, primary keys, ...
