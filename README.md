@@ -294,3 +294,12 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Slows insert/update/delete operations, because indexes needs to be updated.
     (Updating might change the Tuple boundaries in the page, causing an update for the its and other items offset in the page which reflects to an update in the index DS)
   * An index might be not used at the end by the BD engine.
+
+  **Indexes Types**
+
+  * The first one is B-Tree index (which is almost what we'll use most of the time).
+  * Hash    : Speeds up simple equality checks.
+  * GiST    : Geometry and full-text search data.
+  * SP-GiST : Clustered Data, such as dates - many rows might have the same year.
+  * GIN     : For columns that contain JSON data or Arrays.
+  * BRIN    : Specialized for really large datasets.
