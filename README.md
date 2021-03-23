@@ -313,3 +313,10 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * An index is essentially a file on disk consisting of pages (8KB pages) but with a distinction that pages could be leaf Page, Root page or a meta page.
 
   * the page layout in indexes are the same as page layout in case of regular table pages. page has header, item location, free space, tuple or data itself.
+
+### Query Pipeline In Postgres:
+
+  * The first thing is the **parser**: which takes the query and tries to make sense what the query is all about and validate the spelling, punctuation, and at last build the *query tree*.
+  * The **rewriter** is the second step: in which this piece of code takes the query code and make some modification to it and decompose views into underlying table references.
+  * The **planner** is the big step we care about, it takes query tree and come up with plans to retrieve what information we're trying to fetch. Maybe use an index or do a full scan or whatever plan it comes up with and choose the most appropriate solution.
+  * The fourth step is to run or **execute** the query.
