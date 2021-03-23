@@ -320,3 +320,59 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * The **rewriter** is the second step: in which this piece of code takes the query code and make some modification to it and decompose views into underlying table references.
   * The **planner** is the big step we care about, it takes query tree and come up with plans to retrieve what information we're trying to fetch. Maybe use an index or do a full scan or whatever plan it comes up with and choose the most appropriate solution.
   * The fourth step is to run or **execute** the query.
+
+  **Planner**:
+
+  * We use EXPLAIN, and EXPLAIN ANALYZE to benchmark the query and performance analysis.
+  * EXPLAIN will only build the plan and show it, but EXPLAIN ANALYZE will build the plan and execute the query.
+
+  * Example on the result of EXPLAIN ANALYZE SQL query:
+
+  ``` sql
+
+    EXPLAIN ANALYZE SELECT username, contents
+    FROM users
+    JOIN comments on comments.user_id = users.id
+    WHERE users.username = 'Alyson14';
+  ```
+
+  ![analyze](./pics/analyze.png)
+
+  * The first and all boxes with `->` at the beginning mean it's a query node where we do actual processing.
+  * We read the above result from inside out, so the first step is `Index Scan` then the result is passed up to `Hash` and alongside the `Hash` there is also `Seq Scan` of the comments table and its result is passed to the First node `Hash Join` and combine the two results into one result.
+
+  * Further investigation on the numbers and fields with each node:
+
+  ![analyze2](./pics/analyze2.png)
+
+  * For calculating the `Cost` field, we will consider a more simple query as an example:
+
+    ``` sql
+
+    SELECT username
+    FROM users
+    WHERE users.username = 'Alyson14';
+  ```
+
+  * The planner will probably have two solutions to find that user, namely these two:
+
+  ![idx-vs-seqscan](./pics/idx-vs-seqscan.png)
+
+  * We need some score to determine which method has better performance, so we could say that the number of pages loaded is a good metric here, so have this comparison now:
+
+  ![idx-vs-seqscan-score](./pics/idx-vs-seqscan-score.png)
+
+  * But beware that reading sequential pages from disk is much more convenient than reading random pages at random locations.
+
+  ![idx-vs-seqscan-score2](./pics/idx-vs-seqscan-score2.png)
+
+  * So if we assigned a penalty factor of `4` (completely random number here!!!) for every random page read
+    we would end up with (2 random reads * 4 penalty factor = 8) vs (110 users table pages * 1 base factor seq read = 110)
+    and probably choose the index method.
+
+  
+
+
+
+
+
