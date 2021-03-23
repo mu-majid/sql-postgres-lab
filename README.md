@@ -303,3 +303,13 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * SP-GiST : Clustered Data, such as dates - many rows might have the same year.
   * GIN     : For columns that contain JSON data or Arrays.
   * BRIN    : Specialized for really large datasets.
+
+  **Automatically Created Indexes**
+
+  * primary key and unique indexes are created automatically for us.
+
+  **Index on Disk**:
+
+  * An index is essentially a file on disk consisting of pages (8KB pages) but with a distinction that pages could be leaf Page, Root page or a meta page.
+
+  * the page layout in indexes are the same as page layout in case of regular table pages. page has header, item location, free space, tuple or data itself.
