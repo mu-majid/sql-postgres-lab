@@ -374,8 +374,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ![cost-calc](./pics/cost-calc.png)
 
-
-  
+  * A very important example that shows that a sequential scan could be more convenient than an index, is when we are fetching the majority of records out of a table using a WHERE clause on an indexed column, e.g, Find all likes created at dates greater than 2013-10-10, in our instagram database, would result in 80% of the likes, so using an index would mean having a lot of random pages accessed, and that means a larger cost if index used compared to sequential scan.
 
 
 
