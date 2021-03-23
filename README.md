@@ -370,6 +370,11 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
     we would end up with (2 random reads * 4 penalty factor = 8) vs (110 users table pages * 1 base factor seq read = 110)
     and probably choose the index method.
 
+  * To calculate the cost (predicted cost with a score)  for an operation in postgres, the planner uses this equation:
+
+  ![cost-calc](./pics/cost-calc.png)
+
+
   
 
 
