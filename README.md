@@ -347,7 +347,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   * For calculating the `Cost` field, we will consider a more simple query as an example:
 
-    ``` sql
+  ``` sql
 
     SELECT username
     FROM users
