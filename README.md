@@ -409,7 +409,19 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ![rcte1](./pics/rcte1.png)
 
+  **RCTE Example using instagram DB**:
 
+  * here is a screenshot from instagram, that suggests people to me to follow.
 
+  ![screenshot-follow](./pics/screenshot-follow.png)
 
+  * Instagram makes the following assumption: Since I am following X person, then I might be interested in following whoever that X is following, something like this:
+
+  ![who-should-follow](./pics/who-should-follow.png)
+
+  * But what if I continue scrolling down the ap and I am not interested in any of the suggestion, than instagram would go one extra level in the followers **Graph**, like this:
+
+  ![extra-level](./pics/extra-level.png)
+
+  
 
