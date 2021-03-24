@@ -423,5 +423,42 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ![extra-level](./pics/extra-level.png)
 
-  
+  **The Query to Build such a tree**:
 
+  * We are trying to make suggestion to Hallie (userId = 1) on who to follow.
+
+  ![hallie1](./pics/hallie1.png)
+
+  * We can see that hallie is following `the rock` and `kevin hart`, and these two users are following `justin beiber`, `jennifer lopez`, and `Snoop Dog`.
+
+  ![hallie2](./pics/hallie2.png)
+
+  * to get this result, we could write a query like this:
+
+  ```sql
+    WITH RECURSIVE suggestions(leader_id, follower_id, depth) AS ( -- depth is a column we created to calculate what depth we are at in the suggestion tree
+
+      SELECT leader_id, follower_id, 1 AS depth
+      FROM followers
+      WHERE follower_id = 1 -- We're finding suggestion for user with ID 1
+
+    UNION
+
+      SELECT followers.leader_id, followers.follower_id, depth + 1
+      FROM followers
+      JOIN suggestions ON suggestions.leader_id = followers.follower_id
+      WHERE depth < 3
+
+    )
+
+    -- Usage
+    SELECT DISTINCT users.id, users.username
+    FROM suggestions
+    JOIN users ON users.id = suggestion.leader_id
+    WHERE depth > 1
+    LIMIT 30;
+  ```
+
+  *Explanation is in v214*
+
+  * RCTEs are good to find all employees managed by one person, or find all states and municipalities in a country, or any time we are working with hierarchy.
