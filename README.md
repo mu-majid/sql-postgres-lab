@@ -388,6 +388,27 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   * Another usage of CTEs is recursive CTE which is very handy tool used for complex queries.
 
+### Recursive Common Table Expressions:
+
+  * It is most commonly used with Graphs/Trees data structures.
+  * It is going to have UNION keyword almost all the time.
+
+  ``` sql
+    WITH RECURSIVE countdown(val) AS (
+
+      SELECT 3 AS val -- initial condition / non-recursive query
+      UNION
+      SELECT val - 1 FROM countdown WHERE val > 1 -- recursive query
+    )
+
+    -- Usage
+    SELECT * FROM countdown;
+  ```
+
+  * Behind the scenes, RCTE creates two tables, namely, the Results and Working tables. And the columns of these tables are whatever we wrote in the parentheses of the RCTE, in our case one column called `val`. below is a picture of the steps used to calculate RCTE.
+
+  ![rcte1](./pics/rcte1.png)
+
 
 
 
