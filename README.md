@@ -503,3 +503,18 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
       SELECT id, created_at, user_id, post_id, 'caption_yag' AS type FROM caption_tags
     );
   ```
+
+  * But when to use a view, here is a list of some scenarios where we might need to create a view:
+  ![when-to-use-view](./pics/when-to-use-view.png)
+
+  ```sql
+  -- Most Recent 10 Posts
+  
+  CREATE VIEW recent_posts AS (
+    SELECT* 
+    FROM posts
+    ORDER BY created_at DESC
+    LIMIT 10
+  );
+  ```
+
