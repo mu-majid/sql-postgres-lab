@@ -527,3 +527,23 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
     - A materialized view could be executed at very specific times, and the results are saved and can be referenced without re-running the query again.
 
   * Materialized views are used with very expensive queries. 
+
+  * Example:
+
+  ` For Each Week, show the number of likes posts, and comments have gotten. Use the created_at of the posts and comments as boundaries to weeks`.
+
+  - Solution 1: Three-way Left Join:
+
+  ![left-join-posts-comments-likes](./pics/left-join-posts-comments-likes.png)
+
+  ```sql
+  SELECT 
+    date_trunc('week', COALESCE(posts.created_at, comments.created_at)) AS week,
+    COUNT(posts.id) AS posts_likes,
+    COUNT(comments.id) AS comments_likes
+  FROM likes
+  LEFT JOIN posts ON posts.id = likes.post_id
+  LEFT JOIN comments ON comments.id = likes.comment_id;
+  ORDER BY week;
+  GROUP BY week;
+  ```
