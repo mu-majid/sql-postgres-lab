@@ -563,4 +563,12 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
 ### Transactions:
 
-  * 
+  * It is used to treat a bunch of actions as one unit, and in case of failure in the middle we can revert back any changes.
+  * We start a transaction by writing `BEGIN;`.
+  * When a connection calls the DB server with the BEGIN keyword, it (connection) enters a different/isolated state. And you can imagine as if DB created a copy of the data to work with, (NOTE NO DATA WERE ACTUALLY COPIED)
+
+  ![conn-begin](./pics/conn-begin.png)
+
+  * When connection1 begins to make changes, these changes are made only to the workspace data, and these changes are not reflected to main data, and other connection will return these data not changed.
+
+  * To make these changes made by connection1 effective, we could issue `COMMIT` command. and if we want to discard them, we could run `ROLLBACK` command (In case of error, we enter an aborted state and we must **manually** run ROLLBACK command).
