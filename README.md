@@ -547,3 +547,16 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   ORDER BY week;
   GROUP BY week;
   ```
+
+  * the above query takes a lot of time to be executed, and we should use materialized view to enhance enhance performance.
+  * The materialized view will wrap an expensive query like the above, and execute it only at a specific time.
+
+  ```sql
+  CREATE MATERIALIZED VIEW weekly_likes AS (
+
+    -- some expensive query here
+
+  ) WITH DATA; -- Means run this query the first time this view is created
+  ```
+
+  * One downside is that cached data does not get automatically updated if any of the records used inside the view is updated, and we need to update it manually using `REFRESH MATERIALIZED VIEW view_name;`
