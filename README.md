@@ -492,4 +492,14 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
     - This has some serious drawbacks, we can't copy over the ID's of photo_tags and caption_tags since they must be unique, and if we delete original tables we break any existing queries that refer to them.
 
-  
+    2. Creating A view
+
+  ![sol2-bad-design](./pics/sol2-bad-design.png)
+
+  ``` sql
+    CREATE VIEW tags AS (
+      SELECT id, created_at, user_id, post_id, 'photo_tag' AS type FROM photo_tags
+      UNION ALL
+      SELECT id, created_at, user_id, post_id, 'caption_yag' AS type FROM caption_tags
+    );
+  ```
