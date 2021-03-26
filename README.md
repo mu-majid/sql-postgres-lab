@@ -509,7 +509,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   ```sql
   -- Most Recent 10 Posts
-  
+
   CREATE VIEW recent_posts AS (
     SELECT* 
     FROM posts
@@ -517,4 +517,5 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
     LIMIT 10
   );
   ```
-
+  * If we need to change/update a view, we could use `CREATE OR REPLACE VIEW` keyword.
+  * And to delete a view we use `DROP VIEW view_name`.
