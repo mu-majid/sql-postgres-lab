@@ -462,3 +462,34 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   *Explanation is in v214*
 
   * RCTEs are good to find all employees managed by one person, or find all states and municipalities in a country, or any time we are working with hierarchy.
+
+### Using Views:
+
+  * An example to use view is to find the most popular users in our database, and this is determined by users that are tagged the most.
+  * A solution might be:
+    1. union photo_tags and post_tags tables, then join users table with this union-ed table.
+    2. Group the result by username, and count the groups.
+    3. Sort the groups, and Voila, we got our users sorted by popularity.
+
+  ```sql
+
+    SELECT username, COUNT(*)
+    FROM users
+    JOIN (
+      SELECT user_id FROM photo_tags
+      UNION ALL
+      SELECT user_id FROM caption_tags
+    ) AS tags ON tags.user_id = users.id
+    GROUP BY username
+    ORDER BY COUNT(*) DESC
+
+  ```
+  * As you can see we have been defining union operation on photo_tags and caption_tags tables
+  * This could be an indication that we made a bad database design. And to fix this we have two possible solutions:
+    1. Merge two tables into one table, and delete the original tables
+
+  ![sol1-bad-design](./pics/sol1-bad-design.png)
+
+    - This has some serious drawbacks, we can't copy over the ID's of photo_tags and caption_tags since they must be unique, and if we delete original tables we break any existing queries that refer to them.
+
+  
