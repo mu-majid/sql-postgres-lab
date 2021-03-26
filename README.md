@@ -559,4 +559,8 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   ) WITH DATA; -- Means run this query the first time this view is created
   ```
 
-  * One downside is that cached data does not get automatically updated if any of the records used inside the view is updated, and we need to update it manually using `REFRESH MATERIALIZED VIEW view_name;`
+  * One downside is that cached data does not get automatically updated if any of the records used inside the view is updated, and we need to update it manually using `REFRESH MATERIALIZED VIEW view_name;`.
+
+### Transactions:
+
+  * 
