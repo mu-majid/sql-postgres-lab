@@ -519,3 +519,11 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   ```
   * If we need to change/update a view, we could use `CREATE OR REPLACE VIEW` keyword.
   * And to delete a view we use `DROP VIEW view_name`.
+
+### Materialized View
+
+  * A variation of a view, that differs from it in some aspects like:
+
+    - A materialized view could be executed at very specific times, and the results are saved and can be referenced without re-running the query again.
+
+  * Materialized views are used with very expensive queries. 
