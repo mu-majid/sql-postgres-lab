@@ -534,7 +534,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   - Solution 1: Three-way Left Join:
 
-  ![left-join-posts-comments-likes](./pics/left-join-posts-comments-likes.png)
+  ![left-join-comment-post-likes](./pics/left-join-comment-post-likes.png)
 
   ```sql
   SELECT 
@@ -571,4 +571,15 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   * When connection1 begins to make changes, these changes are made only to the workspace data, and these changes are not reflected to main data, and other connection will return these data not changed.
 
-  * To make these changes made by connection1 effective, we could issue `COMMIT` command. and if we want to discard them, we could run `ROLLBACK` command (In case of error, we enter an aborted state and we must **manually** run ROLLBACK command).
+  * To make these changes made by connection1 effective, we could issue `COMMIT` command.
+  
+  ![commit-changes](./pics/commit-changes.png)
+
+  * and if we want to discard them, we could run `ROLLBACK` command (In case of error, we enter an aborted state and we must **manually** run ROLLBACK command).
+
+  
+  ![abort-trans](./pics/abort-trans.png)
+
+
+  * If a crash occurs, and connection is closed, DB calls rollback automatically for us.
+
