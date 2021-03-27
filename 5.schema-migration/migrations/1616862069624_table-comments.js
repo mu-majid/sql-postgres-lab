@@ -21,5 +21,5 @@ exports.down = pgm => {
     DROP TABLE comments;
     )
     `
-  )
+  );
 };
