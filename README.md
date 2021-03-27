@@ -583,3 +583,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   * If a crash occurs, and connection is closed, DB calls rollback automatically for us.
 
+### Schema Migrations:
+
+  * Making changes to database schema.
+  * Like changing a column name in a table (this is somehow a low risk change).
