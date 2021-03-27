@@ -1,0 +1,16 @@
+{
+  "name": "5.schema-migration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "node-pg-migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-pg-migrate": "^5.9.0",
+    "pg": "^8.5.1"
+  }
+}

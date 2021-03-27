@@ -589,4 +589,6 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Like changing a column name in a table (this is somehow a low risk change).
   * We should have a schema migration file that logs any change we make to our DB design.
   * Each Migration file has two section, Up, and Down section. Up is for creating, changing, or do any change to our DB, and Down section is for un-doing whatever we did in the up section.
+  * The huge benefit we get, is that we keep track of all changes made to our design, and make it consistent across all engineers working on the team.
   
+
