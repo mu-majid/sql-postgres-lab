@@ -2,6 +2,24 @@
 
 exports.shorthands = undefined;
 
-exports.up = pgm => {};
+exports.up = pgm => {
+  pgm.sql(
+    `
+    CREATE TABLE comments (
+      id SERIAL PRIMARY KEY,
+      created_at TIMESTAMP WITH ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITH ZONE DEFAULT CURRENT_TIMESTAMP,
+      contents VARCHAR(240) NOT NULL
+    );
+    `
+  );
+};
 
-exports.down = pgm => {};
+exports.down = pgm => {
+  pgm.sql(
+    `
+    DROP TABLE comments;
+    )
+    `
+  )
+};
