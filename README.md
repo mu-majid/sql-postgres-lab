@@ -594,5 +594,10 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * There is a difference between Data Migration and schema migration, Data migration is moving values between different columns.
   
   **Dangers of Data Migrations:**
-  
+
+  * Running Data migration along with schema migration could result in an erroneous results, because while we are running our data migration in a transaction, the table could be receiving inserts in the mean time, causing erroneous results.
+
+  * Here is an idea on how we should implement data+schema migration.
+  ![data+schema-migration](./pics/data+schema-migration.png)
+
 
