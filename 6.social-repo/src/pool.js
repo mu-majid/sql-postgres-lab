@@ -8,6 +8,8 @@ class Pool {
 
   connect(opts) {
     this._pool = new pg.Pool (opts);
+    // force pool to connect to postgres
+    return this._pool.query('SELECT 1 + 1;');
   }
 }
 
