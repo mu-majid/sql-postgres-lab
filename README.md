@@ -600,4 +600,11 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * Here is an idea on how we should implement data+schema migration.
   ![data+schema-migration](./pics/data+schema-migration.png)
 
+  * When we update a row inside a transaction, this row gets locked, so for a long running transaction, this row would not be updated by any other transactions until the locking transaction finishes.
+
+  ---
+
+  * note that, we could perform data migration in batches or all at once, this actually depends on volume of data, whether we need to make some business logic validation, or minimize the locking on rows.
+
+
 
