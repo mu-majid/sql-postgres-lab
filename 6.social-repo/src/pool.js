@@ -11,6 +11,15 @@ class Pool {
     // force pool to connect to postgres
     return this._pool.query('SELECT 1 + 1;');
   }
+
+  close() {
+    return this._pool.end();
+  }
+
+  // BEWARE OF SQL INJECTION !!!!!!!
+  query(sql) {
+    return this._pool.query(sql);
+  }
 }
 
 module.exports = new Pool();
