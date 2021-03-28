@@ -606,5 +606,8 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   * note that, we could perform data migration in batches or all at once, this actually depends on volume of data, whether we need to make some business logic validation, or minimize the locking on rows.
 
+### Accessing DB from API:
 
+  * We are using `pg` module to access postgres from nodejs, and we're accessing it using a pool (not a client).
+  
 
