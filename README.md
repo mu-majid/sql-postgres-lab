@@ -609,5 +609,6 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 ### Accessing DB from API:
 
   * We are using `pg` module to access postgres from nodejs, and we're accessing it using a pool (not a client).
+  * One way to access the database entity is to use `Repository Pattern`. The Idea is to have a central point that we use to access the database.
   
 
