@@ -620,5 +620,7 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   ```
   where the `id` is whatever the user provide to us.
 
+  * We should **sanitize** whatever a user provide as an input using some sort of a library, or make the database ORM handle it like in `pg` we're using. It first Prepare the statement, then execute it. This preparation means it sanitize the input.
+
   
 
