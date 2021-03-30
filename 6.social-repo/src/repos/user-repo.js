@@ -4,7 +4,20 @@ class UserRepo {
   static async find() {
     const { rows } = await pool.query('SELECT * FROM users;');
 
-    return rows;
+    const parsedRows = rows.map(row => {
+      const replaced = {};
+
+      for (const key in row) {
+        const camelCase = key.replace(/([-_][a-z])/gi, (group) => {
+          group.toLocaleUpperCase().replace('_', '');
+        });
+        replaced[camelCase] = row[key];
+      }
+
+      return replaced;
+    });
+
+    return parsedRows;
   }
 
   static async findById() {}
