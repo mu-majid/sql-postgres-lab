@@ -610,5 +610,15 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   * We are using `pg` module to access postgres from nodejs, and we're accessing it using a pool (not a client).
   * One way to access the database entity is to use `Repository Pattern`. The Idea is to have a central point that we use to access the database.
+
+### Security Around SQL:
+
+  * Pay close attention to what is known as SQL injection. That Occurs when we trust whatever string a user handed us blindly, and concatenate it to a query and that query.
+  * An example of a string provided by a user could be a request params. `http://localhost/users/1; DROP TABLE users;` this would end in deleting users table if we process the query as:
+  ```javascript
+  const { rows } = await pool.query(`SELECT * FROM users WHERE id = ${id}`);
+  ```
+  where the `id` is whatever the user provide to us.
+
   
 
