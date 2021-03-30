@@ -621,6 +621,9 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   where the `id` is whatever the user provide to us.
 
   * We should **sanitize** whatever a user provide as an input using some sort of a library, or make the database ORM handle it like in `pg` we're using. It first Prepare the statement, then execute it. This preparation means it sanitize the input.
+  * This prepared statement method only allow specifying a value on the fly, so if we want to specify a column name or a table on the fly we cannot use that approach.
+
+  
 
   
 
