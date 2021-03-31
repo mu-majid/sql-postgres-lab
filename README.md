@@ -632,4 +632,13 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
   * A tip for testing is always to clear DB before any test, and also close the tests or disconnect from tests (beforeAll + afterAll).
   * Also, always create an instance of testing database.
 
+  **Isolating Parallel tests**
 
+  - Solution #1: Each File has its own database. No conflicts, **but** many databases will be created if we have many files.
+  - Solution #2: Each File gets its isolation by giving each file a *Schema*.
+
+  ![pg-schema](./pics/pg-schema.png)
+
+  - Postgres will use `public` schema if we did not specify what schema we should read from it. This default schema is determined by `search_path` variable value. The default value is actually what is stored in `$user` variable, which is the user connected. This means if we have a schema name equal to connected user name, this schema will be used. All this discussion is of course inside on Database.
+
+  - Check `context.js` file to see schema isolation in action.
