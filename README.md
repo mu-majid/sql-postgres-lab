@@ -625,5 +625,11 @@ UNION, INTERSECT, EXCEPT: This is a no-brainer. A UNION is an operator that conn
 
   https://www.sqlshack.com/sanitizing-inputs-avoiding-security-usability-disasters/
 
-  
+### Parallel testing in postgres:
+
+  * Running parallel test really helps performance and time of pipelines, but we it's an advanced topic, in which we must pay close attention not make tests interfere with each other.
+
+  * A tip for testing is always to clear DB before any test, and also close the tests or disconnect from tests (beforeAll + afterAll).
+  * Also, always create an instance of testing database.
+
 
